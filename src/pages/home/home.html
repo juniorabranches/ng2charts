@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Charts
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+    <ion-segment [(ngModel)]="segment" (ionChange)="calc(segment)">
+      <ion-segment-button  value="bar">
+        Bar
+      </ion-segment-button>
+      <ion-segment-button value="doughnut">
+        Doughnut
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="segment" style="segment">
+    <ion-list *ngSwitchCase="'bar'" >
+        <div style="display: block">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [colors]="barChartColors"
+                  [chartType]="barChartType"></canvas>
+        </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'doughnut'">
+            <div width="600" height="800">
+              <div style="display: block" >
+                <canvas baseChart
+                            [data]="doughnutChartData"
+                            [labels]="doughnutChartLabels"
+                            [chartType]="doughnutChartType"></canvas>
+              </div>
+            </div>
+    </ion-list>
+  </div>
+</ion-content>
+
