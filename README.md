@@ -1,2 +1,5 @@
-# ng2charts
-An example of usage charts with angular + ionic
+![View this](src/assets/gif.gif)
+
+# To run:
+* > npm install
+* > ionic serve -l (with live reload)
